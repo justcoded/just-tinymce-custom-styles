@@ -9,7 +9,8 @@
  */
 
 define('JTMCE_ROOT', dirname(__FILE__));
-require_once( JTMCE_ROOT . '/core/Autoload.php');
+require_once( JTMCE_ROOT . '/core/helpers.php' );
+require_once( JTMCE_ROOT . '/core/Autoload.php' );
 
 use jtmce\core;
 use jtmce\components;

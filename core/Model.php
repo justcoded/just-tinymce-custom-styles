@@ -33,7 +33,7 @@ class Model
 	 */
 	public function __construct()
 	{
-		//$this->_dL = DataLayerFactory::create();
+		$this->_dL = DataLayerFactory::create();
 	}
 
 	/**

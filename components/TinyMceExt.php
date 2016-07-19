@@ -1,6 +1,7 @@
 <?php
 
 namespace jtmce\components;
+use jtmce\models\Formats;
 
 /**
  * Adds hooks and methods to extend TinyMCE WordPress editor
@@ -39,30 +40,13 @@ class TinyMceExt extends \jtmce\core\Component
 	 */
 	public function setCustomFormats( $init_array )
 	{
-		// TODO: load from settings
-
-		// Define the style_formats array
-		$style_formats = array(
-			// Each array child is a format with it's own settings
-			array(
-				'title' => 'My super link',
-				'selector' => 'a',
-				'classes' => 'my-super-link',
-			),
-			array(
-				'title' => 'Blue header',
-				'selector' => 'h2',
-				'classes' => 'blue-header',
-			),
-			array(
-				'title' => 'Custom format',
-				'inline' => 'span',
-				'classes' => 'ololo',
-				'attrributes' => '',
-			),
-		);
+		$model = new Formats();
+		if ( empty($model->formats) ) {
+			return $init_array;
+		}
+		
 		// Insert the array, JSON ENCODED, into 'style_formats'
-		$init_array['style_formats'] = json_encode( $style_formats );
+		$init_array['style_formats'] = json_encode( $model->formats );
 
 		return $init_array;
 	}
@@ -75,7 +59,10 @@ class TinyMceExt extends \jtmce\core\Component
 	 */
 	public function setCustomFormatsCssUrl($stylesheets)
 	{
-		// TODO: check that we have CSS rules first
+		$model = new Formats();
+		if ( empty($model->formats) ) {
+			return $stylesheets;
+		}
 
 		$stylesheets .= ',' . get_admin_url(null, 'admin-ajax.php') . '?action=jtmce_editor_css';
 		return $stylesheets;
@@ -86,13 +73,17 @@ class TinyMceExt extends \jtmce\core\Component
 	 */
 	public function customFormatsCss()
 	{
-		// TODO: Load from settings
+		$model = new Formats();
+		if ( empty($model->formats) ) {
+			return;
+		}
 
 		header("Content-Type: text/css; charset=" . get_bloginfo('charset'));
-		?>
-		a.my-super-link { display:block; border: 1px solid #a00; padding: 10px; }
-		h2.blue-header { color: #00f; }
-		<?php
+		foreach ( $model->formats as $style_format ) {
+			if ( !empty($style_format['editor_css']) ) {
+				echo $style_format['editor_css'] . "\n";
+			}
+		}
 	}
 
 }

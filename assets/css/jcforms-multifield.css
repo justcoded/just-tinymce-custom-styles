@@ -5,17 +5,19 @@
     box-sizing: border-box;
 }
 .jcmf-form-item {
-    padding: 10px 20px;
+    padding: 5px 20px;
     position: relative;
     overflow: hidden;
+}
+.jcmf-form-item.has-error {
+    border-bottom: 2px solid #d00;
+    background: #ffdada;
 }
 .jcmf-remove-input {
     position: absolute;
     right: 10px;
-    top: 30px;
-    transform: translateY(-50%);
+    top: 10px;
     cursor: pointer;
-    font-size: 18px;
     color: #444;
 }
 .jcmf-add-input-btn {
@@ -72,7 +74,7 @@ textarea.jcmf-input {
 .jcmf-multi-field .handle {
     position: absolute;
     left: 0;
-    top: 30px;
+    top: 25px;
     transform: translateY(-50%);
     width: 18px;
     height: 32px;
@@ -81,4 +83,5 @@ textarea.jcmf-input {
 }
 .jcmf-multi-field .handle.sortable {
     background-color: #b3b3b3;
+    cursor: move;
 }

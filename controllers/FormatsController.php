@@ -40,6 +40,7 @@ class FormatsController extends Controller
 	{
 		$model = new Formats();
 		$features = Settings::getFeaturesEnabled();
+		$model->load($_POST) && $model->save();
 
 		// load template
 		return $this->render('formats/index', array(

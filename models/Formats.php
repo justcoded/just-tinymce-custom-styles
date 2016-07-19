@@ -13,7 +13,14 @@ use jtmce\core\Model;
 
 class Formats extends Model
 {
+	public $formats;
 
+	public function __construct()
+	{
+		parent::__construct();
+		
+		$this->formats = $this->_dL->getFormats();
+	}
 
 	public static function getFeaturesList()
 	{
@@ -44,5 +51,83 @@ class Formats extends Model
 			'wrapper' => array( __('Wrapper'), 'select', 'items' => array( 0 => 'Single format', 1 => 'Wrapper format' ) ),
 			'editor_css' => array( __('Editor additional CSS rules'), 'textarea' ),
 		);
+	}
+
+	/**
+	 * error messages
+	 *
+	 * @return array
+	 */
+	public function messageTemplates()
+	{
+		return array(
+			'updated' => __('<strong>Style Formats</strong> configuration has been updated.', \JustTinyMceStyles::TEXTDOMAIN),
+		);
+	}
+
+	/**
+	 * save formats to dataLayer with validation
+	 *
+	 * @return bool
+	 */
+	public function save()
+	{
+		if ( !$this->validateFormats() )
+			return false;
+		
+		$this->_dL->setFormats($this->formats);
+		if ( $this->_dL->save() ) {
+			$this->addMessage('updated');
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Validate $formats properly
+	 */
+	public function validateFormats()
+	{
+		if ( empty($this->formats) || !is_array($this->formats) ) {
+			$this->formats = array();
+			return true;
+		}
+
+		// clean up empty values
+		$this->formats = array_values($this->formats);
+		foreach ($this->formats as $row => $format) {
+			foreach ( $format as $key => $value ) {
+				$value = trim($value);
+				if ( empty($value) )
+					unset($this->formats[$row][$key]);
+			}
+		}
+
+		// validate input
+		foreach ($this->formats as $row => $format) {
+			$row_human = $row + 1;
+			$row_error = false;
+			$selector_features = array_intersect(array('selector', 'inline', 'block'), array_keys($format));
+			$attributes_features = array_intersect(array('classes', 'styles', 'attributes'), array_keys($format));
+
+			if ( empty($format['title']) ) {
+				$row_error = true;
+				$this->addError(strtr(__("<strong>Row {row}:</strong> Title is empty."), array('{row}' => $row_human)));
+			}
+			if ( empty($selector_features) ) {
+				$row_error = true;
+				$this->addError(strtr(__("<strong>Row {row}:</strong> Please set selector/inline/block field."), array('{row}' => $row_human)));
+			}
+			if ( empty($attributes_features) ) {
+				$row_error = true;
+				$this->addError(strtr(__("<strong>Row {row}:</strong> Please set one of html modificator fields."), array('{row}' => $row_human)));
+			}
+
+			if ( $row_error ) {
+				$this->formats[$row]['_hasError'] = true;
+			}
+		}
+
+		return !$this->hasErrors();
 	}
 }

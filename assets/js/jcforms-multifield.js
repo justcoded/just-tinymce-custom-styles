@@ -95,6 +95,9 @@ jQuery(function($) {
           name: settings.fieldId + '[' + counter + ']' + '[' + d.name + ']',
         }).appendTo(row);
 
+        if ( settings.data[index] && settings.data[index]['_hasError'] ) {
+          $(control).parents('.jcmf-form-item').addClass('has-error');
+        }
       });
 
       checkSortableOrder(row);
