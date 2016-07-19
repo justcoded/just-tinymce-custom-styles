@@ -1,12 +1,13 @@
 <?php
-
 /*
-  Plugin Name: Just TinyMCE Custom Styles
-  Description: WordPress Plugin Boilerplate based on latest WordPress OOP practices
-  Version: 0.1
-  Author: Private Company
-  License: GPL2
- */
+Plugin Name: Just TinyMCE Custom Styles
+Description: Plugin to control custom styles for tags in WordPress TinyMCE Editor
+Tags: tinymce, editor, link class, custom styles, styles, tag class, link attributes, tag attributes, custom editor
+Version: 1.0
+Author: Alexander Prokopenko
+Author URI: http://justcoded.com/
+License: GPL2
+*/
 
 define('JTMCE_ROOT', dirname(__FILE__));
 require_once( JTMCE_ROOT . '/core/helpers.php' );

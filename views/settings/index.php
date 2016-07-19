@@ -45,7 +45,7 @@ use jtmce\models\Settings;
 					<input type="checkbox" name="features[]" id="jtmce_feature_<?php echo $key; ?>"
 						   value="<?php echo $key; ?>" <?php checked( in_array($key, (array)$model->features), true ); ?> >
 					<label for="jtmce_feature_<?php echo $key; ?>">
-						<?php echo "<b>$key</b><br>$description"; ?>
+						<?php echo "<b>$key</b><br>" . esc_html($description); ?>
 					</label>
 				</p>
 

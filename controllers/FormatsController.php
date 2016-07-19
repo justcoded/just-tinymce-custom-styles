@@ -65,18 +65,6 @@ class FormatsController extends Controller
 	}
 
 	/**
-	 * JS localization text strings
-	 /
-	public function localizeScripts()
-	{
-		// add text domain
-		$i18n_slug = 'just-custom-fields-i18n';
-		wp_register_script($i18n_slug, WP_PLUGIN_URL . '/just-custom-fields/assets/jcf_i18n.js');
-		wp_localize_script($i18n_slug, 'jcf_textdomain', jcf_get_language_strings());
-		wp_enqueue_script($i18n_slug);
-	}
-
-	/**
 	 * Include styles
 	 */
 	public function addStyles()
