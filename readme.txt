@@ -38,6 +38,9 @@ To do so create such row formatter:
 * Enable/Disable some style_format features for more clean formatting
 * Easy to use formats edit
 
+**Plugin Demo**
+
+https://www.youtube.com/watch?v=fljkfet52eg
 
 == Installation ==
 
