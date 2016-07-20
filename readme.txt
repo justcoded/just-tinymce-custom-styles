@@ -1,6 +1,6 @@
 === Just TinyMCE Custom Styles === 
 Plugin Name: Just TinyMCE Custom Styles
-Description: Plugin to control custom styles for tags in WordPress TinyMCE Editor
+Description: Plugin to add dropdown options for custom css classes and attributes for tags in WordPress TinyMCE Editor
 Tags: tinymce, editor, link class, custom styles, styles, tag class, link attributes, tag attributes, custom editor
 Version: 1.0
 Contributors: aprokopenko
@@ -11,7 +11,7 @@ Requires at least: 4.3
 Tested up to: 4.6
 Stable tag: trunk
 
-Plugin to control custom styles for tags in WordPress TinyMCE Editor.
+Plugin to add dropdown options for custom css classes and attributes for tags in WordPress TinyMCE Editor
 
 == Description ==
 
@@ -38,6 +38,9 @@ To do so create such row formatter:
 * Enable/Disable some style_format features for more clean formatting
 * Easy to use formats edit
 
+**Plugin Demo**
+
+https://www.youtube.com/watch?v=fljkfet52eg
 
 == Installation ==
 
