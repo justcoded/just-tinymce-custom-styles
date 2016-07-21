@@ -4,7 +4,7 @@ Description: Plugin to add dropdown options for custom css classes and attribute
 Tags: tinymce, editor, link class, custom styles, styles, tag class, link attributes, tag attributes, custom editor
 Version: 1.0
 Contributors: aprokopenko
-Author: JustCoded
+Author: JustCoded / Alex Prokopenko
 Author URI: http://justcoded.com/
 License: GPL2
 Requires at least: 4.3
@@ -37,6 +37,11 @@ To do so create such row formatter:
 * Load Settings from DB or .json file from theme
 * Enable/Disable some style_format features for more clean formatting
 * Easy to use formats edit
+
+**ISSUES TRACKER**
+
+If you have any feedbacks or bugs found: please write to our github issues tracker:
+https://github.com/justcoded/just-tinymce-custom-styles/issues
 
 **Plugin Demo**
 
