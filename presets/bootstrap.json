@@ -1,0 +1,211 @@
+[
+    {
+        "title": "Contextual Styles",
+        "type": "group"
+    },
+    {
+        "title": "Muted",
+        "type": "item",
+        "selector": "*",
+        "classes": "text-muted",
+        "editor_css": ".text-muted{color:#777;}"
+    },
+    {
+        "title": "Primary",
+        "type": "item",
+        "selector": "*",
+        "classes": "text-primary",
+        "editor_css": ".text-primary{color:#337ab7;}"
+    },
+    {
+        "title": "Success",
+        "type": "item",
+        "selector": "*",
+        "classes": "text-success",
+        "editor_css": ".text-success{color:#3c763d;}"
+    },
+    {
+        "title": "Info",
+        "type": "item",
+        "selector": "*",
+        "classes": "text-info",
+        "editor_css": ".text-info{color:#31708f;}"
+    },
+    {
+        "title": "Warning",
+        "type": "item",
+        "selector": "*",
+        "classes": "text-warning",
+        "editor_css": ".text-warning{color:#8a6d3b;}"
+    },
+    {
+        "title": "Danger",
+        "type": "item",
+        "selector": "*",
+        "classes": "text-danger",
+        "editor_css": ".text-danger{color:#a94442;}"
+    },
+    {
+        "title": "BG Primary",
+        "type": "item",
+        "selector": "*",
+        "classes": "bg-primary",
+        "editor_css": ".bg-primary{background:#337ab7;color:#fff;}"
+    },
+    {
+        "title": "BG Success",
+        "type": "item",
+        "selector": "*",
+        "classes": "bg-success",
+        "editor_css": ".bg-success{background:#dff0d8;}"
+    },
+    {
+        "title": "BG Info",
+        "type": "item",
+        "selector": "*",
+        "classes": "bg-info",
+        "editor_css": ".bg-info{background:#d9edf7;}"
+    },
+    {
+        "title": "BG Warning",
+        "type": "item",
+        "selector": "*",
+        "classes": "bg-warning",
+        "editor_css": ".bg-warning{background:#fcf8e3;}"
+    },
+    {
+        "title": "BG Danger",
+        "type": "item",
+        "selector": "*",
+        "classes": "bg-danger",
+        "editor_css": ".bg-danger{background:#f2dede;}"
+    },
+    {
+        "title": "Buttons",
+        "type": "group"
+    },
+    {
+        "title": "Set button",
+        "type": "item",
+        "selector": "a,button",
+        "classes": "btn btn-default",
+        "editor_css": ".btn{border:1px solid #ccc; border-radius:4px; padding:3px 6px;}"
+    },
+    {
+        "title": "Primary",
+        "type": "item",
+        "selector": "a,button",
+        "classes": "btn-primary",
+        "editor_css": ".btn.btn-primary{background:#337ab7;color:#fff}"
+    },
+    {
+        "title": "Success",
+        "type": "item",
+        "selector": "a,button",
+        "classes": "btn-success",
+        "editor_css": ".btn.btn-success{background:#5cb85c;color:#fff}"
+    },
+    {
+        "title": "Info",
+        "type": "item",
+        "selector": "a,button",
+        "classes": "btn-info",
+        "editor_css": ".btn.btn-info{background:#5bc0de;color:#fff}"
+    },
+    {
+        "title": "Warning",
+        "type": "item",
+        "selector": "a,button",
+        "classes": "btn-warning",
+        "editor_css": ".btn.btn-warning{background:#f0ad4e;color:#fff}"
+    },
+    {
+        "title": "Danger",
+        "type": "item",
+        "selector": "a,button",
+        "classes": "btn-danger",
+        "editor_css": ".btn.btn-danger{background:#d9534f;color:#fff}"
+    },
+    {
+        "title": "Large size",
+        "type": "item",
+        "selector": "a,button",
+        "classes": "btn-lg",
+        "editor_css": ".btn.btn-lg{font-size:1.5em;}"
+    },
+    {
+        "title": "Small size",
+        "type": "item",
+        "selector": "a,button",
+        "classes": "btn-sm",
+        "editor_css": ".btn.btn-sm{font-size:0.7em}"
+    },
+    {
+        "title": "Images",
+        "type": "group"
+    },
+    {
+        "title": "Responsive",
+        "type": "item",
+        "selector": "img",
+        "classes": "img-responsive",
+        "editor_css": ".img-responsive{width:100%;border:3px solid #5cb85c;}"
+    },
+    {
+        "title": "Rounded",
+        "type": "item",
+        "selector": "img",
+        "classes": "img-rounded",
+        "editor_css": ".img-rounded{border-radius:6px;}"
+    },
+    {
+        "title": "Circle",
+        "type": "item",
+        "selector": "img",
+        "classes": "img-circle",
+        "editor_css": ".img-circle{border-radius:50%;}"
+    },
+    {
+        "title": "Thumbnail",
+        "type": "item",
+        "selector": "img",
+        "classes": "img-thumbnail",
+        "editor_css": ".img-thumbnail{display: inline-block;max-width: 100%;padding: 4px;line-height: 1.4;background-color: #fff; border: 1px solid #ddd; border-radius: 4px;}"
+    },
+    {
+        "title": "Components",
+        "type": "group"
+    },
+    {
+        "title": "Page header",
+        "type": "wrapper",
+        "block": "div",
+        "classes": "page-header",
+        "editor_css": ".page-header{margin:40px 0 20px;padding-bottom:9px;border-bottom:1px solid #eee;}",
+        "wrapper": 1
+    },
+    {
+        "title": "Jumbotron",
+        "type": "wrapper",
+        "block": "div",
+        "classes": "jumbotron",
+        "editor_css": ".jumbotron{padding:20px 30px;background:#eee;}",
+        "wrapper": 1
+    },
+    {
+        "title": "Badge",
+        "type": "wrapper",
+        "inline": "span",
+        "classes": "badge",
+        "editor_css": ".badge{display:inline-block;padding:3px 7px;background:#aaa;border-radius:10px;white-space:nowrap;}",
+        "wrapper": 1
+    },
+    {
+        "title": "Well",
+        "type": "wrapper",
+        "block": "div",
+        "classes": "well",
+        "editor_css": ".well{min-height:20px;padding:10px;border:1px solid #e3e3e3;background-color:#f5f5f5;box-shadow:inset 0 1px 1px rgba(0,0,0,.05);border-radius:4px;}",
+        "wrapper": 1
+    }
+]

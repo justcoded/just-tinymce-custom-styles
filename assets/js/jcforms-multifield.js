@@ -69,6 +69,9 @@ jQuery(function($) {
       $el.append(row);
 
       $.each(settings.structure, function(i, d) {
+        var value = settings.data[index]? settings.data[index][d.name] : null;
+        var title = d.placeholder ? d.placeholder : '';
+
         switch (d.type) {
           case 'select':
             var control = $("<select>");
@@ -76,23 +79,27 @@ jQuery(function($) {
             for ( var key in d.items ) {
               $(control).append('<option value="' + key + '">' + d.items[key] + '</option>');
             }
+            if ( typeof(value) == 'undefined' || null === value ) {
+              value = $(control).find('option:first').val();
+            }
             break;
           case 'textarea':
             var control = $("<textarea>");
             control.attr({
-              placeholder: d.placeholder ? d.placeholder : ''
+              placeholder: title
             }).addClass('jcmf-input');
             break;
           default:
             var control = $("<input />");
             control.attr({
-              placeholder: d.placeholder ? d.placeholder : '',
+              placeholder: title,
               type: d.type ? d.type : 'text',
             }).addClass('jcmf-input');
         }
-        var value = settings.data[index]? settings.data[index][d.name] : '';
+
         $(control).val(value).attr({
           name: settings.fieldId + '[' + counter + ']' + '[' + d.name + ']',
+          title: title
         }).appendTo(row);
 
         if ( settings.data[index] && settings.data[index]['_hasError'] ) {

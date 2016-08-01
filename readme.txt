@@ -2,7 +2,7 @@
 Plugin Name: Just TinyMCE Custom Styles
 Description: Adds dropdown options for custom css classes and attributes for tags in WordPress TinyMCE Editor
 Tags: tinymce, editor, link class, custom styles, styles, tag class, link attributes, tag attributes, custom editor
-Version: 1.0
+Version: 1.1
 Contributors: aprokopenko
 Author: JustCoded / Alex Prokopenko
 Author URI: http://justcoded.com/
@@ -26,6 +26,8 @@ documentation on codex.wordpress.org: https://codex.wordpress.org/TinyMCE_Custom
 * Enable/Disable some style_format features for more clean formatting
 * Nice interface to quickly add your formats
 * Ability to apply custom editor css for each rule separately
+* You can group your styles for more clear usage
+* Bootstrap preset: pre-defined bootstrap styles for editor.
 
 = Example: Custom link class =
 
@@ -40,6 +42,14 @@ To do so, create such row formatter:.
 = Plugin Demo =
 
 https://www.youtube.com/watch?v=fljkfet52eg
+
+= Presets =
+
+We added special feature called "Presets" - these are pre-defined styles included inside the plugin.
+You can import them to your site with a single click.
+
+With presets we plan to add popular CSS framework classes to be able to use them inside the editor.
+We started with a Bootstrap preset, because it's one of the most popular CSS framework right now.
 
 = ISSUES TRACKER =
 
@@ -64,7 +74,11 @@ To upgrade remove the old plugin folder. After than follow the installation step
 1. Plugin settings page where you can enable/disable formatter options
 2. Style formatters edit
 3. WordPress editor look
+3. Bootstrap styles preset
 
 == Changelog ==
+* Version 1.1
+	* Ability to group new styles into dropdowns
+	* Presets: pre-defined list of styles. Bootstrap added.
 * Version 1.0
 	* First version of the plugin
