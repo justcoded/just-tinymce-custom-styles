@@ -23,15 +23,28 @@ class FilesDataLayer extends DataLayer
 
 		$this->_formats = array();
 		$file = $this->getFilePath();
+		$this->_formats = self::readFormatsFile($file);
 
+		return $this->_formats;
+	}
+
+	/**
+	 * Read json file with plugin settings and convert to php array
+	 *
+	 * @param string $file  file path to be read
+	 * @return array|mixed|object
+	 */
+	public static function readFormatsFile( $file )
+	{
 		if ( file_exists($file) ) {
 			$content = file_get_contents($file);
 
 			$data = json_decode($content, true);
-			$this->_formats = (gettype($data) == 'string') ? json_decode($data, true) : $data;
+			$formats = (gettype($data) == 'string') ? json_decode($data, true) : $data;
+			return $formats;
 		}
 
-		return $this->_formats;
+		return array();
 	}
 
 	/**

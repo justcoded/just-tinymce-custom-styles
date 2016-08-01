@@ -44,9 +44,28 @@ class TinyMceExt extends \jtmce\core\Component
 		if ( empty($model->formats) ) {
 			return $init_array;
 		}
-		
+
+		$formats = $model->formats;
+
+		// detect groups and break all elements on groups
+		$group_i = null;
+
+		foreach ( $formats as $i => $item ) {
+			$type = isset($item['type'])? $item['type'] : Formats::TYPE_ITEM;
+			if ( $type == Formats::TYPE_GROUP ) {
+				$formats[$i]['items'] = array();
+				$group_i = $i;
+				continue;
+			}
+
+			if ( !is_null($group_i) ) {
+				$formats[$group_i]['items'][] = $item;
+				unset($formats[$i]);
+			}
+		}
+
 		// Insert the array, JSON ENCODED, into 'style_formats'
-		$init_array['style_formats'] = json_encode( $model->formats );
+		$init_array['style_formats'] = json_encode( $formats );
 
 		return $init_array;
 	}

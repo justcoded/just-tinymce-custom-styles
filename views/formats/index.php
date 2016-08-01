@@ -3,6 +3,7 @@
 /* @var $features array */
 
 use jtmce\models\Settings;
+use jtmce\models\Formats;
 ?>
 <?php include(JTMCE_ROOT . '/views/_header.php'); ?>
 
@@ -22,7 +23,7 @@ use jtmce\models\Settings;
 			<p>This is only user interface to the standard feature, which is disabled by default and explained in official documentation on <a href="https://codex.wordpress.org/TinyMCE_Custom_Styles" target="_blank">codex.wordpress.org</a></p>
 			<h3>Options details</h3>
 			<?php
-			$features_info = $features_conf = \jtmce\models\Formats::getFeaturesList();
+			$features_info = $features_conf = Formats::getFeaturesList();
 			foreach ($features as $feature) : ?>
 				<p><strong><?php echo $feature; ?></strong><br>
 					<?php echo esc_html($features_info[$feature]); ?>
@@ -76,6 +77,19 @@ use jtmce\models\Settings;
 				e.preventDefault();
 				$('.jtmce_help_box').toggleClass('hidden');
 			})
+
+			// init type "group"
+			$(document).on('change', 'select[name$="type]"]', function(){
+				var val = $(this).val();
+				var row = $(this).parents('.jcmf-form-item');
+				if ( val == "<?php echo Formats::TYPE_GROUP; ?>" ) {
+					row.find('.jcmf-input').slice(2).hide();
+				}
+				else {
+					row.find('.jcmf-input').slice(2).show();
+				}
+			})
+			$('select[name$="type]"]').change();
 		  });
 
 		}( jQuery ));
