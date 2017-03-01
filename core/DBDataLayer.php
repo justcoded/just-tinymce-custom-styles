@@ -41,7 +41,15 @@ class DBDataLayer extends DataLayer
 	{
 		$value = serialize($this->_formats);
 		$value = base64_encode($value);
-		return update_option(self::OPT_NAME, $value);
+
+		// check that values are the same. if they are the same update will return false, which is not correct. save is successfull in this case
+		$old_value = get_option(self::OPT_NAME);
+		if ( $value === $old_value ) {
+			return true;
+		}
+		else {
+			return update_option(self::OPT_NAME, $value);
+		}
 	}
 
 }
