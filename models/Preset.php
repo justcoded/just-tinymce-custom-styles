@@ -33,6 +33,7 @@ class Preset extends Model
 		$model = new Formats();
 		$model->formats = $data;
 		if ( $model->save() ) {
+			$this->maybeEnableItemType($model->formats);
 			$this->addMessage('imported');
 			return true;
 		}
@@ -60,6 +61,33 @@ class Preset extends Model
 			return false;
 		}
 
+		return true;
+	}
+
+	/**
+	 * Check that formats special types, so type field is required in settings
+	 *
+	 * @param array $formats
+	 */
+	public function maybeEnableItemType($formats)
+	{
+		$item_type_required = false;
+
+		foreach ($formats as $row => $format) {
+			if ( isset($format['type']) && $format['type'] != Formats::TYPE_ITEM ) {
+				$item_type_required = true;
+				break;
+			}
+		}
+
+		if ( $item_type_required ) {
+			$settings = new Settings();
+			$settings->features = Settings::getFeaturesEnabled();
+			if ( !in_array('type', $settings->features) ) {
+				array_unshift($settings->features, 'type');
+				return $settings->updateFeatures();
+			}
+		}
 		return true;
 	}
 

@@ -8,7 +8,7 @@ Author: JustCoded / Alex Prokopenko
 Author URI: http://justcoded.com/
 License: GPL2
 Requires at least: 4.3
-Tested up to: 4.6
+Tested up to: 4.7.2
 Stable tag: trunk
 
 Adds dropdown options for custom css classes and attributes for tags in WordPress TinyMCE Editor.
@@ -77,6 +77,8 @@ To upgrade remove the old plugin folder. After than follow the installation step
 3. Bootstrap styles preset
 
 == Changelog ==
+* Version 1.2
+	* Fixed preset import: If you don't have "type" feature enabled in your settings, import will enable it for you.
 * Version 1.1
 	* Ability to group new styles into dropdowns
 	* Presets: pre-defined list of styles. Bootstrap added.
