@@ -91,6 +91,9 @@ class FilesDataLayer extends DataLayer
 	{
 		if ( is_null($rel_file) ) $rel_file = Settings::getDataSourceThemeFile();
 
-		return get_stylesheet_directory() . '/' . ltrim($rel_file, '/');
+		$file_path = get_stylesheet_directory() . '/' . ltrim($rel_file, '/');
+		$file_path = apply_filters('jtmce_config_file_path', $file_path);
+
+		return $file_path;
 	}
 }
