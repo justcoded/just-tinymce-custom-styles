@@ -8,7 +8,7 @@ Author: JustCoded / Alex Prokopenko
 Author URI: http://justcoded.com/
 License: GPL2
 Requires at least: 4.3
-Tested up to: 5.0.1
+Tested up to: 5.5
 Stable tag: trunk
 
 Adds dropdown options for custom css classes and attributes for tags in WordPress TinyMCE Editor.
